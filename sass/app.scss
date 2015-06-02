@@ -1,0 +1,234 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@import url('http://fonts.googleapis.com/css?family=Maven+Pro:400,500,900,700');
+
+/*
+	Style Menu
+
+
+	01 Variables
+	02 General
+	03 Paragraph
+	04 H1, H2, H3
+	05 Buttons
+	06 Links
+	07 Lists
+	08 Wells
+	09 Header master
+
+
+*/
+
+/*===========================================
+01 Variables	
+===========================================*/
+$baseSize: 10px;
+$defaultSize: 1.657rem;
+$letterSpace: .05rem;
+
+$primaryColor: #555;
+$secondaryColor: #ddd;
+
+
+@mixin translateY($size){
+	-webkit-transform:translateY($size);
+	   -moz-transform:translateY($size);
+	     -o-transform:translateY($size);
+	        transform:translateY($size);
+}
+@mixin scale($size){
+	-webkit-transform:scale($size);
+	   -moz-transform:scale($size);
+	     -o-transform:scale($size);
+	        transform:scale($size);
+}
+@mixin rotate($deg){
+	-webkit-transform:rotate($deg);
+	   -moz-transform:rotate($deg);
+	     -o-transform:rotate($deg);
+	        transform:rotate($deg);
+}
+@mixin origin($xpos, $ypos){
+	-webkit-transform-origin: $xpos $ypos;
+	   -moz-transform-origin: $xpos $ypos;
+	     -o-transform-origin: $xpos $ypos;
+	        transform-origin: $xpos $ypos;
+}
+@mixin transition($prop, $time, $ease){
+	-webkit-transition: $prop $time $ease;
+	   -moz-transition: $prop $time $ease;
+	     -o-transition: $prop $time $ease;
+	        transition: $prop $time $ease;
+}
+@mixin animation($name, $time, $ease, $repeat, $alt){
+	-webkit-animation: $name $time $ease $repeat $alt;
+	   -moz-animation: $name $time $ease $repeat $alt;
+	     -o-animation: $name $time $ease $repeat $alt;
+	        animation: $name $time $ease $repeat $alt;
+}
+@mixin gradient($deg, $firstColor, $secondColor){
+	background: -webkit-linear-gradient($deg, $firstColor, $secondColor);
+	background: -moz-linear-gradient($deg, $firstColor, $secondColor);
+	background: -o-linear-gradient($deg, $firstColor, $secondColor);
+	background: linear-gradient($deg, $firstColor, $secondColor);
+}
+
+@for $i from 1 through 5 {
+	.mt-#{$i}{
+		margin-top: 1rem * $i !important;
+	}
+	.mb-#{$i}{
+		margin-bottom: 1rem * $i !important;
+	}
+	.ml-#{$i}{
+		margin-left: 1rem * $i !important;
+	}
+	.mr-#{$i}{
+		margin-right: 1rem * $i !important;
+	}
+
+	.pt-#{$i}{
+		padding-top: 1rem * $i !important;
+	}
+	.pb-#{$i}{
+		padding-bottom: 1rem * $i !important;
+	}
+	.pl-#{$i}{
+		padding-left: 1rem * $i !important;
+	}
+	.pr-#{$i}{
+		padding-right: 1rem * $i !important;
+	}
+}
+
+.b-shadow{
+	box-shadow: 0 .1rem .3rem rgba(0,0,0,.2);
+}
+
+.t-shadow{
+	text-shadow: 0 .1rem .2rem rgba(0,0,0,.4);
+}
+
+/*===========================================
+02 General	
+===========================================*/
+html, body{
+	height: 100%;
+}
+
+body{
+	font-size: $baseSize;
+	font-family: 'Maven Pro', sans-serif;
+}
+.container{
+	width: 100%;
+	max-width: 105rem;
+}
+.relative{
+	position: relative;
+}
+
+/*===========================================
+03 Paragraph	
+===========================================*/
+p{
+	font-size: $defaultSize;
+	letter-spacing: $letterSpace;
+	line-height: $defaultSize + .7rem;
+	font-weight: 500;
+	color: $primaryColor;
+	margin: 0 0 2rem 0;
+}
+
+/*===========================================
+04 H1, H2, H3	
+===========================================*/
+h1, h2, h3{
+	font-weight: 400;
+	margin: 0;
+}
+
+h1{
+	font-size: $defaultSize + 1.5rem;
+	letter-spacing: -.03rem;
+}
+
+/*===========================================
+05 Buttons	
+===========================================*/
+
+
+/*===========================================
+06 Links	
+===========================================*/
+a, a:active, a:visited, a:focus, a:hover{
+	outline: none;
+	text-decoration: none
+}
+
+/*===========================================
+07 Lists	
+===========================================*/
+ul{
+	list-style:none;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/*===========================================
+08 Wells
+===========================================*/
+
+
+/*===========================================
+09 Header master
+===========================================*/
+.header--master{
+	height: 8rem;
+	background: $primaryColor;
+
+	.header--master__logo{
+		h1{
+			color: $secondaryColor;
+			line-height: 8rem;
+			font-size: $defaultSize + 1rem;
+		}
+	}
+
+	.header--master__navbtn{
+		position: relative;
+		font-size: $defaultSize + 1.2rem;
+		color: $secondaryColor;
+		display: inline-block;
+		line-height: 8rem;
+	}
+
+	.nav--master{
+		position: absolute;
+		top: 100%;
+		right: 0;
+		background: lighten($primaryColor, 15%);
+		visibility: hidden;
+		opacity: 0;
+
+		ul{
+			li{
+				border-bottom: .1rem solid lighten($primaryColor, 20%);
+
+				a{
+					font-size: $defaultSize;
+					display: block;
+					height: 4rem;
+					line-height: 4rem;
+					padding: 0 2rem;
+					color: $secondaryColor;
+
+					&:hover{
+						background: lighten($primaryColor, 17%)
+					}
+				}
+			}
+		}
+	}
+}
